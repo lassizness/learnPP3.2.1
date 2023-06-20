@@ -1,7 +1,7 @@
 package lazzy.web.controller;
 
 import lazzy.web.entity.UserEntity;
-import lazzy.web.service.UserService;
+import lazzy.web.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,10 +17,10 @@ import java.util.Collection;
 
 @Controller
 public class UserController {
-    private final UserService userService;
+    private final UserServiceImpl userService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserServiceImpl userService) {
         this.userService = userService;
     }
 

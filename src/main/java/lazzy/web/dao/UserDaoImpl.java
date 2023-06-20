@@ -2,14 +2,12 @@ package lazzy.web.dao;
 
 import lazzy.web.entity.RoleEntity;
 import lazzy.web.entity.UserEntity;
-import lazzy.web.model.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -42,7 +40,7 @@ public class UserDaoImpl implements UserDao {
         List<UserEntity> results = query.getResultList();
         UserEntity user = null;
         if (!results.isEmpty()) {
-             user = results.get(0);
+            user = results.get(0);
             user.setUserRoles(getUserRoles(username));
         }
         return user;
@@ -57,9 +55,10 @@ public class UserDaoImpl implements UserDao {
         Set<RoleEntity> resultSet = new HashSet<>(resultList);//Конвертировали в set
         return resultSet;
     }
+
     @Override
     public void saveUser(UserEntity user) {
-        UserEntity userEntity = new UserEntity(user.getName(), user.getAge(),user.getUsername(), user.getPassword());
+        UserEntity userEntity = new UserEntity(user.getName(), user.getAge(), user.getUsername(), user.getPassword());
         entityManager.persist(userEntity);
     }
 

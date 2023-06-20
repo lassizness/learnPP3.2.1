@@ -1,7 +1,7 @@
 package lazzy.web.controller;
 
-import lazzy.web.service.RoleService;
-import lazzy.web.service.UserService;
+import lazzy.web.service.RoleServiceImpl;
+import lazzy.web.service.UserServiceImpl;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 //@RequestMapping("/admin")
 @PreAuthorize("hasRole('ADMIN')")
 public class RoleController {
-    private final RoleService roleService;
-    private final UserService userService;
+    private final RoleServiceImpl roleService;
+    private final UserServiceImpl userService;
 
-    public RoleController(RoleService roleService, UserService userService) {
+    public RoleController(RoleServiceImpl roleService, UserServiceImpl userService) {
         this.roleService = roleService;
         this.userService =userService;
 

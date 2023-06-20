@@ -12,7 +12,9 @@ public interface UserDao {
     List<UserEntity> getUsers();
 
     UserEntity getUser(long id);
+
     UserEntity findUser(String username);
+
     Set<RoleEntity> getUserRoles(String username);
 
     void saveUser(UserEntity user);

@@ -1,7 +1,7 @@
 package lazzy.web.controller;
 
 import lazzy.web.entity.UserEntity;
-import lazzy.web.service.UserDao;
+import lazzy.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,11 +17,11 @@ import java.util.Collection;
 
 @Controller
 public class UserController {
-    private final UserDao userDao;
+    private final UserService userService;
 
     @Autowired
-    public UserController(UserDao userDao) {
-        this.userDao = userDao;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
 
@@ -47,7 +47,7 @@ public class UserController {
     @GetMapping("/user")
     public String showUserPage(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        UserEntity currentUser = userDao.findUser(authentication.getName());
+        UserEntity currentUser = userService.findUser(authentication.getName());
         model.addAttribute("currentUser", currentUser);
         return "user";
     }

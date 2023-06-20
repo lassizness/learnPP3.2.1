@@ -1,5 +1,6 @@
 package lazzy.web.service;
 
+import lazzy.web.dao.UserDao;
 import lazzy.web.entity.RoleEntity;
 import lazzy.web.entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +19,12 @@ import java.util.Set;
 
 @Service
 @Transactional
-public class UserDao implements UserDetailsService {// UserDetailsService определяет метод loadUserByUsername
+public class UserService implements UserDetailsService {// UserDetailsService определяет метод loadUserByUsername
 
-    private final lazzy.web.dao.UserDao userDao;
+    private final UserDao userDao;
 
     @Autowired
-    public UserDao(lazzy.web.dao.UserDao userDao) {
+    public UserService(lazzy.web.dao.UserDao userDao) {
         this.userDao = userDao;
     }
 

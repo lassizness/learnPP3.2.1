@@ -1,6 +1,7 @@
 package lazzy.web.service;
 
 import lazzy.web.dao.RoleDao;
+import lazzy.web.dao.UserDao;
 import lazzy.web.entity.RoleEntity;
 import lazzy.web.entity.UserEntity;
 import org.springframework.stereotype.Service;
@@ -32,5 +33,14 @@ public class RoleService {
         RoleEntity role = roleDao.getRoleById(roleId);
         user.removeRole(role);
         userDao.updateUser(user);
+    }
+
+    public void createRole(String roleName) {
+        RoleEntity role = new RoleEntity(roleName);
+        roleDao.createRole(role);
+    }
+
+    public void deleteRole(Long roleId) {
+        roleDao.delete(roleId);
     }
 }

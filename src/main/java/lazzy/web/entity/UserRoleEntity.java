@@ -36,7 +36,6 @@ public class UserRoleEntity {
     public UserEntity getUser() {
         return user;
     }
-
     public void setUser(UserEntity user) {
         this.user = user;
     }
@@ -44,7 +43,6 @@ public class UserRoleEntity {
     public RoleEntity getRole() {
         return role;
     }
-
     public void setRole(RoleEntity role) {
         this.role = role;
     }

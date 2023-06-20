@@ -15,7 +15,7 @@
 </form>
 
 <h2>Users:</h2>
-<table>
+<!--<table>
   <tr>
     <th>ID</th>
     <th>Username</th>
@@ -24,13 +24,14 @@
     <td th:text="${user.id}"></td>
     <td th:text="${user.username}"></td>
   </tr>
-</table>
+</table>-->
 
 
 <table>
   <tr>
     <th>ID</th>
     <th>Name</th>
+    <th>Role</th>
     <th>Action</th>
   </tr>
   <tr th:each="user : ${users}">
@@ -53,5 +54,22 @@
     </td>
   </tr>
 </table>
+<h2>All Roles</h2>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+  </tr>
+  <tr th:each="role : ${roles}">
+    <td th:text="${role.id}"></td>
+    <td th:text="${role.name}"></td>
+  </tr>
+</table>
+<h2>Create Role</h2>
+<form action="/create-role" method="post">
+  <label for="roleName">Role Name:</label>
+  <input type="text" id="roleName" name="roleName">
+  <input type="submit" value="Create Role">
+</form>
 </body>
 </html>

@@ -40,20 +40,6 @@ public class UserEntity implements UserDetails{
 
     public UserEntity() {
     }
-
-    public UserEntity(String name, Integer age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    public UserEntity(long id, String name, int age, String username, String password) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.username = username;
-        this.password = password;
-    }
-
     public UserEntity(String name, int age, String username, String password) {
         this.name = name;
         this.age = age;

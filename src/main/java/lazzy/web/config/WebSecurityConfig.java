@@ -1,6 +1,6 @@
 package lazzy.web.config;
 
-import lazzy.web.service.UserDao;
+import lazzy.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,18 +16,18 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final UserDao userDao;
+    private final UserService userService;
     private final SuccessUserHandler successUserHandler;
 
     @Autowired
-    public WebSecurityConfig(UserDao userDao, SuccessUserHandler successUserHandler) {
-        this.userDao = userDao;
+    public WebSecurityConfig(UserService userService, SuccessUserHandler successUserHandler) {
+        this.userService = userService;
         this.successUserHandler = successUserHandler;
     }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDao)
+        auth.userDetailsService(userService)
                 .passwordEncoder(NoOpPasswordEncoder.getInstance());//не хешируем, используем в открытом виде
     };
 
